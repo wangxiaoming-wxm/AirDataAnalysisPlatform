@@ -1,0 +1,23 @@
+server:
+  port: 8081
+spring:
+  datasource:
+      username: root
+      password: root
+      url: jdbc:mysql://192.168.56.101:3306/air_data?useSSL=false&useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
+      driver-class-name: com.mysql.jdbc.Driver
+
+#showSql
+logging:
+  level:
+    com:
+      example:
+        mapper : debug
+mybatis:
+  mapper-locations: classpath*:mapping/**/*.xml #注意：一定要对应mapper映射xml文件的所在路径
+  type-aliases-package: com.sinosig.esg.model  # 注意：对应实体类的路径
+
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl #开启SQL语句打印
+
