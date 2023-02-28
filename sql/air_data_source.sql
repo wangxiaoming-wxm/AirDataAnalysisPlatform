@@ -1,6 +1,6 @@
 -- air_data.air_data_source definition
-
-CREATE TABLE "air_data_source" (
+CREATE DATABASE  IF NOT EXISTS "air_data" /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+CREATE TABLE "air_data"."air_data_source" (
   "id" int NOT NULL AUTO_INCREMENT COMMENT '主键',
   "airlineLogo" varchar(100) DEFAULT NULL,
   "airlineShortCompany" varchar(100) DEFAULT NULL,
