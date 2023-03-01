@@ -43,7 +43,7 @@ public class AirDataSourceController{
      */
     @ApiOperation("新增数据")
     @RequestMapping(value = "/add",method = RequestMethod.GET)
-    public String add(@RequestParam("dayId") String  dayId){
+    public void add(@RequestParam("dayId") String  dayId){
 
         log.info("接收到的请求参数=【{}】",dayId);
         List<String> fromAirportList = airDataSourceService.getFromAirportCode3();
@@ -65,7 +65,5 @@ public class AirDataSourceController{
                 airDataSourceService.saveBatch(airDataSourceList);
             }
         }));
-
-        return "已完成"+ dayId +"航空数据采集";
     }
 }
