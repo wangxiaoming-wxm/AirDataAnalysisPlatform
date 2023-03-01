@@ -2,11 +2,9 @@ package com.lzcu.wangyongyong.controller;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import com.lzcu.wangyongyong.common.enums.Constant;
 import com.lzcu.wangyongyong.common.utils.AirDataCaptureUtil;
 import com.lzcu.wangyongyong.common.utils.ExampleData;
 import com.lzcu.wangyongyong.common.utils.JsonToBeanUtil;
@@ -43,17 +41,17 @@ public class AirDataSourceController{
      */
     @ApiOperation("新增数据")
     @RequestMapping(value = "/add",method = RequestMethod.GET)
-    public void add(@RequestParam("dayId") String  dayId){
+    public String add(@RequestParam("dayId") String  dayId){
 
         log.info("接收到的请求参数=【{}】",dayId);
         List<String> fromAirportList = airDataSourceService.getFromAirportCode3();
         List<String> toAirportList = airDataSourceService.getToAirportCode3();
 
         fromAirportList.forEach(fromAirport -> toAirportList.forEach(toAirport -> {
-            JSONObject airLineDataJson = AirDataCaptureUtil.getAirLineResp(dayId,fromAirport,toAirport);
-            String data = airLineDataJson.getString("data");
-            JSONArray jsonArray = JSONArray.parseArray(data);
-            //JSONArray jsonArray = JSONArray.parseArray(ExampleData.exampleData); //测试可用此方法
+//            JSONObject airLineDataJson = AirDataCaptureUtil.getAirLineResp(dayId,fromAirport,toAirport);
+//            String data = airLineDataJson.getString("data");
+//            JSONArray jsonArray = JSONArray.parseArray(data);
+            JSONArray jsonArray = JSONArray.parseArray(ExampleData.exampleData); //测试可用此方法
             List<AirDataSource> airDataSourceList = new ArrayList<>();
             jsonArray.forEach(x -> {
                 JSONObject jsonObject = (JSONObject)x;
@@ -65,5 +63,6 @@ public class AirDataSourceController{
                 airDataSourceService.saveBatch(airDataSourceList);
             }
         }));
+        return dayId + "航空数据采集完毕";
     }
 }
