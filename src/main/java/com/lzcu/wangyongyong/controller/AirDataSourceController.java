@@ -92,7 +92,9 @@ public class AirDataSourceController{
                 airDataSource.setStatecolor(jsonObject.getString("stateColor"));
                 airDataSourceList.add(airDataSource);
             });
-            airDataSourceService.saveBatch(airDataSourceList);
+            if(null != airDataSourceList && airDataSourceList.size() > 0){
+                airDataSourceService.saveBatch(airDataSourceList);
+            }
         }));
 
         return "已完成"+ dayId +"航空数据采集";
