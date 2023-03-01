@@ -16,7 +16,7 @@ public class Constant {
     public static String CHONGQING = "CKG";
     public static String LANZHOU = "LHW";
     public static String XIAN = "XIY";
-    public static String HANGZHOU = "HGH";
+    public static String TAIYUAN = "TYN";
     public static String WUHAN = "WUH";
 
 }

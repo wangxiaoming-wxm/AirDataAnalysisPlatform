@@ -1,6 +1,5 @@
 package com.lzcu.wangyongyong.service.impl;
 
-import cn.hutool.core.date.DateTime;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.ejlchina.searcher.BeanSearcher;
 import com.ejlchina.searcher.param.Operator;
@@ -17,7 +16,6 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 
 /**
@@ -46,9 +44,9 @@ public class AirDataSourceServiceImpl extends ServiceImpl<AirDataSourceMapper, A
 
     @Override
     public List<String> getToAirportCode3() {
-        //构造查询条件，到达兰州、西安、杭州、武汉
+        //构造查询条件，到达兰州、西安、太原、武汉
         Map<String, Object> params = MapUtils.builder()
-                .field(DimAirport::getAirportCode3, Constant.XIAN,Constant.HANGZHOU,Constant.LANZHOU,Constant.WUHAN).op(Operator.InList)
+                .field(DimAirport::getAirportCode3, Constant.XIAN,Constant.TAIYUAN,Constant.LANZHOU,Constant.WUHAN).op(Operator.InList)
                 .build();
         //查询数据库结果
         List<DimAirport> list = beanSearcher.searchAll(DimAirport.class, params);

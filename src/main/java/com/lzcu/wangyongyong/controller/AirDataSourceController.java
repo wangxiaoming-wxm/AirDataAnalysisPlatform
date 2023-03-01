@@ -48,10 +48,10 @@ public class AirDataSourceController{
         List<String> toAirportList = airDataSourceService.getToAirportCode3();
 
         fromAirportList.forEach(fromAirport -> toAirportList.forEach(toAirport -> {
-//            JSONObject airLineDataJson = AirDataCaptureUtil.getAirLineResp(dayId,fromAirport,toAirport);
-//            String data = airLineDataJson.getString("data");
-//            JSONArray jsonArray = JSONArray.parseArray(data);
-            JSONArray jsonArray = JSONArray.parseArray(ExampleData.exampleData); //测试可用此方法
+            JSONObject airLineDataJson = AirDataCaptureUtil.getAirLineResp(dayId,fromAirport,toAirport);
+            String data = airLineDataJson.getString("data");
+            JSONArray jsonArray = JSONArray.parseArray(data);
+            //JSONArray jsonArray = JSONArray.parseArray(ExampleData.exampleData); //测试可用此方法
             List<AirDataSource> airDataSourceList = new ArrayList<>();
             jsonArray.forEach(x -> {
                 JSONObject jsonObject = (JSONObject)x;
