@@ -7,6 +7,7 @@ import java.util.Random;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.lzcu.wangyongyong.common.enums.Constant;
+import com.lzcu.wangyongyong.common.utils.AirDataCaptureUtil;
 import com.lzcu.wangyongyong.common.utils.ExampleData;
 import com.lzcu.wangyongyong.mapper.AirDataSourceMapper;
 import com.lzcu.wangyongyong.model.AirDataSource;
@@ -55,13 +56,13 @@ public class AirDataSourceController{
             log.error("随机睡眠时间出错，请检查！");
             throw new RuntimeException(e);
         }
-//        JSONObject airLineDataJson = null;
-//        airLineDataJson = AirDataCaptureUtil.getAirLineResp(dayId,fromAirport,toAirport);
-//        int status = airLineDataJson.getInteger("status");
-//        String msg = airLineDataJson.getString("msg");
-//        String data = airLineDataJson.getString("data");
+        JSONObject airLineDataJson = null;
+        airLineDataJson = AirDataCaptureUtil.getAirLineResp(dayId,fromAirport,toAirport);
+        int status = airLineDataJson.getInteger("status");
+        String msg = airLineDataJson.getString("msg");
+        String data = airLineDataJson.getString("data");
 
-        JSONArray jsonArray = JSONArray.parseArray(ExampleData.exampleData);
+        JSONArray jsonArray = JSONArray.parseArray(data);
         List<AirDataSource> airDataSourceList = new ArrayList<>();
         jsonArray.forEach(x -> {
             AirDataSource airDataSource = new AirDataSource();
