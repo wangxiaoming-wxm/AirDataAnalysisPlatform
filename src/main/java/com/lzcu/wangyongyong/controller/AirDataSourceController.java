@@ -44,17 +44,12 @@ public class AirDataSourceController{
     @ApiOperation("新增数据")
     @RequestMapping(value = "/add",method = RequestMethod.GET)
     public String add(@RequestParam("dayId") String  dayId){
+
         log.info("接收到的请求参数=【{}】",dayId);
         List<String> fromAirportList = airDataSourceService.getFromAirportCode3();
         List<String> toAirportList = airDataSourceService.getToAirportCode3();
+
         fromAirportList.forEach(fromAirport -> toAirportList.forEach(toAirport -> {
-            //每次数据抓取前随机等待5秒至20秒
-            try {
-                Thread.sleep((new Random()).nextInt(Constant.MAX)%(Constant.MIN) + Constant.MIN);
-            } catch (InterruptedException e) {
-                log.error("随机睡眠时间出错，请检查！");
-                throw new RuntimeException(e);
-            }
             JSONObject airLineDataJson = AirDataCaptureUtil.getAirLineResp(dayId,fromAirport,toAirport);
             String data = airLineDataJson.getString("data");
             JSONArray jsonArray = JSONArray.parseArray(data);

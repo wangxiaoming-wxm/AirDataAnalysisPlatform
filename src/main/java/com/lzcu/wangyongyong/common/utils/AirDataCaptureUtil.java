@@ -1,11 +1,14 @@
 package com.lzcu.wangyongyong.common.utils;
 
 import com.alibaba.fastjson.JSONObject;
+import com.lzcu.wangyongyong.common.enums.Constant;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
+
 import org.jsoup.Connection;
 import org.jsoup.Jsoup;
 /**
@@ -43,7 +46,13 @@ public class AirDataCaptureUtil {
 
 
     public static JSONObject getAirLineResp(String dayId, String fromAirport, String toAirport)  {
-
+        //每次数据抓取前随机等待5秒至20秒
+        try {
+            Thread.sleep((new Random()).nextInt(Constant.MAX)%(Constant.MIN) + Constant.MIN);
+        } catch (InterruptedException e) {
+            log.error("随机睡眠时间出错，请检查！");
+            throw new RuntimeException(e);
+        }
         //构建请求URL，标准格式为：https://api.133.cn/third/flight?d=2023-02-27&dc=PEK&ac=CAN
         String airLineUrl = BASE_URL + "d=" + dayId + "&dc=" + fromAirport + "&ac=" + toAirport;
         System.out.println(airLineUrl);
