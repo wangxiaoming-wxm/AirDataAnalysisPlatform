@@ -21,14 +21,13 @@ AirDataAnalysisPlatform项目是基于SpringBoot+MyBatis Plus构建的航空数�
 #### 使用说明
 
 1.  本平台作为数据采集代理平台，运行在本地，且需要公网连接。
-2.  本平台数据采集接口方法为GET，访问地址为：http://127.0.0.1:8081/airDataSource/add
-3.  本平台数据采集接口参数为标准json,样例为：
-```json
-{
-    "dayId": "2023-02-27",
-    "fromAirport": "PEK",
-    "toAirport": "CAN"
-}
+2.  本平台数据采集接口方法为GET，访问地址为：
+```shell
+http://127.0.0.1:8081/airDataSource/add
+```
+3.  本平台数据采集接口参数为dayId：
+```shell
+http://127.0.0.1:8081/airDataSource/add?dayId=2023-02-27
 ```
 
 
