@@ -9,6 +9,7 @@
 - jsoup 1.14.3
 - mysql 8.0.27
 - fastjson 2.0.7
+- beanSearch 3.8.1
 
 #### 安装教程
 
