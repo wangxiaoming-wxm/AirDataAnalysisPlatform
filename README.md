@@ -1,6 +1,6 @@
 # 航空数据采集分析平台
 
-#### 介绍
+#### 平台介绍
 AirDataAnalysisPlatform项目是基于SpringBoot+MyBatis Plus构建的航空数据采集平台，主要通过代码控制数据采集周期、数据采集起止点，通过Jsoup框架获取真实数据，之后写入MySQL，即完成数据采集链路。
 
 #### 软件架构
