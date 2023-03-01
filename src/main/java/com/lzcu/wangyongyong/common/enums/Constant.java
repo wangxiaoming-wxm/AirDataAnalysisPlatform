@@ -7,6 +7,16 @@ package com.lzcu.wangyongyong.common.enums;
  */
 public class Constant {
 
-    public static int MAX = 6000;
-    public static int MIN = 2000;
+    public static int MAX = 20000;
+    public static int MIN = 5000;
+
+    public static String BEIJING = "PEK";
+    public static String SHANGHAI = "SHA";
+    public static String GUANGZHOU = "CAN";
+    public static String CHONGQING = "CKG";
+    public static String LANZHOU = "LHW";
+    public static String XIAN = "XIY";
+    public static String HANGZHOU = "HGH";
+    public static String WUHAN = "WUH";
+
 }
