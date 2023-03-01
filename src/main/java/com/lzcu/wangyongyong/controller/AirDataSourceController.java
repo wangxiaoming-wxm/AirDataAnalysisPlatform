@@ -47,55 +47,53 @@ public class AirDataSourceController{
         log.info("接收到的请求参数=【{}】",params);
         String dayId = params.getString("dayId");
 
-        //每次数据抓取前随机等待5秒至20秒
-        try {
-            Thread.sleep((new Random()).nextInt(Constant.MAX)%(Constant.MIN) + Constant.MIN);
-        } catch (InterruptedException e) {
-            log.error("随机睡眠时间出错，请检查！");
-            throw new RuntimeException(e);
-        }
         List<String> fromAirportList = airDataSourceService.getFromAirportCode3();
         List<String> toAirportList = airDataSourceService.getToAirportCode3();
-        fromAirportList.forEach(fromAirport -> {
-            toAirportList.forEach(toAirport -> {
-                JSONObject airLineDataJson = AirDataCaptureUtil.getAirLineResp(dayId,fromAirport,toAirport);
-                String data = airLineDataJson.getString("data");
-                JSONArray jsonArray = JSONArray.parseArray(data);
-                List<AirDataSource> airDataSourceList = new ArrayList<>();
-                jsonArray.forEach(x -> {
-                    AirDataSource airDataSource = new AirDataSource();
-                    JSONObject jsonObject = (JSONObject)x;
-                    log.info("获取到的航空数据=【{}】",jsonObject);
-                    airDataSource.setAirlinelogo(jsonObject.getString("airlineLogo"));
-                    airDataSource.setAirlineshortcompany(jsonObject.getString("airlineShortCompany"));
-                    airDataSource.setArractcross(jsonObject.getString("arrActCross"));
-                    airDataSource.setArracttime(jsonObject.getString("arrActTime"));
-                    airDataSource.setArrairport(jsonObject.getString("arrAirport"));
-                    airDataSource.setArrcode(jsonObject.getString("arrCode"));
-                    airDataSource.setArrontimerate(jsonObject.getString("arrOntimeRate"));
-                    airDataSource.setArrplancross(jsonObject.getString("arrPlanCross"));
-                    airDataSource.setArrplantime(jsonObject.getString("arrPlanTime"));
-                    airDataSource.setArrterminal(jsonObject.getString("arrTerminal"));
-                    airDataSource.setCheckintable(jsonObject.getString("checkInTable"));
-                    airDataSource.setCheckintablewidth(jsonObject.getString("checkInTableWidth"));
-                    airDataSource.setDepactcross(jsonObject.getString("depActCross"));
-                    airDataSource.setDepacttime(jsonObject.getString("depActTime"));
-                    airDataSource.setDepairport(jsonObject.getString("depAirport"));
-                    airDataSource.setDepcode(jsonObject.getString("depCode"));
-                    airDataSource.setDepplancross(jsonObject.getString("depPlanCross"));
-                    airDataSource.setDepplantime(jsonObject.getString("depPlanTime"));
-                    airDataSource.setDepterminal(jsonObject.getString("depTerminal"));
-                    airDataSource.setFlightno(jsonObject.getString("flightNo"));
-                    airDataSource.setFlightstate(jsonObject.getString("flightState"));
-                    airDataSource.setLocaldate(jsonObject.getString("localDate"));
-                    airDataSource.setMainflightno(jsonObject.getString("mainFlightNo"));
-                    airDataSource.setShareflag(jsonObject.getString("shareFlag"));
-                    airDataSource.setStatecolor(jsonObject.getString("stateColor"));
-                    airDataSourceList.add(airDataSource);
-                });
-                airDataSourceService.saveBatch(airDataSourceList);
+        fromAirportList.forEach(fromAirport -> toAirportList.forEach(toAirport -> {
+            //每次数据抓取前随机等待5秒至20秒
+            try {
+                Thread.sleep((new Random()).nextInt(Constant.MAX)%(Constant.MIN) + Constant.MIN);
+            } catch (InterruptedException e) {
+                log.error("随机睡眠时间出错，请检查！");
+                throw new RuntimeException(e);
+            }
+            JSONObject airLineDataJson = AirDataCaptureUtil.getAirLineResp(dayId,fromAirport,toAirport);
+            String data = airLineDataJson.getString("data");
+            JSONArray jsonArray = JSONArray.parseArray(data);
+            List<AirDataSource> airDataSourceList = new ArrayList<>();
+            jsonArray.forEach(x -> {
+                AirDataSource airDataSource = new AirDataSource();
+                JSONObject jsonObject = (JSONObject)x;
+                log.info("获取到的航空数据=【{}】",jsonObject);
+                airDataSource.setAirlinelogo(jsonObject.getString("airlineLogo"));
+                airDataSource.setAirlineshortcompany(jsonObject.getString("airlineShortCompany"));
+                airDataSource.setArractcross(jsonObject.getString("arrActCross"));
+                airDataSource.setArracttime(jsonObject.getString("arrActTime"));
+                airDataSource.setArrairport(jsonObject.getString("arrAirport"));
+                airDataSource.setArrcode(jsonObject.getString("arrCode"));
+                airDataSource.setArrontimerate(jsonObject.getString("arrOntimeRate"));
+                airDataSource.setArrplancross(jsonObject.getString("arrPlanCross"));
+                airDataSource.setArrplantime(jsonObject.getString("arrPlanTime"));
+                airDataSource.setArrterminal(jsonObject.getString("arrTerminal"));
+                airDataSource.setCheckintable(jsonObject.getString("checkInTable"));
+                airDataSource.setCheckintablewidth(jsonObject.getString("checkInTableWidth"));
+                airDataSource.setDepactcross(jsonObject.getString("depActCross"));
+                airDataSource.setDepacttime(jsonObject.getString("depActTime"));
+                airDataSource.setDepairport(jsonObject.getString("depAirport"));
+                airDataSource.setDepcode(jsonObject.getString("depCode"));
+                airDataSource.setDepplancross(jsonObject.getString("depPlanCross"));
+                airDataSource.setDepplantime(jsonObject.getString("depPlanTime"));
+                airDataSource.setDepterminal(jsonObject.getString("depTerminal"));
+                airDataSource.setFlightno(jsonObject.getString("flightNo"));
+                airDataSource.setFlightstate(jsonObject.getString("flightState"));
+                airDataSource.setLocaldate(jsonObject.getString("localDate"));
+                airDataSource.setMainflightno(jsonObject.getString("mainFlightNo"));
+                airDataSource.setShareflag(jsonObject.getString("shareFlag"));
+                airDataSource.setStatecolor(jsonObject.getString("stateColor"));
+                airDataSourceList.add(airDataSource);
             });
-        });
+            airDataSourceService.saveBatch(airDataSourceList);
+        }));
 
         return "已完成"+ dayId +"航空数据采集";
     }

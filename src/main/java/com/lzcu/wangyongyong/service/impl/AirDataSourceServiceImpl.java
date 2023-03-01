@@ -34,10 +34,7 @@ public class AirDataSourceServiceImpl extends ServiceImpl<AirDataSourceMapper, A
     public List<String> getFromAirportCode3() {
         //构造查询条件，从北京、上海、广州、重庆出发
         Map<String, Object> params = MapUtils.builder()
-                .field(DimAirport::getAirportCode3, Constant.BEIJING).op(Operator.Equal)
-                .field(DimAirport::getAirportCode3, Constant.SHANGHAI).op(Operator.Equal)
-                .field(DimAirport::getAirportCode3, Constant.GUANGZHOU).op(Operator.Equal)
-                .field(DimAirport::getAirportCode3, Constant.CHONGQING).op(Operator.Equal)
+                .field(DimAirport::getAirportCode3, Constant.BEIJING,Constant.SHANGHAI,Constant.GUANGZHOU,Constant.CHONGQING).op(Operator.InList)
                 .build();
         //查询数据库结果
         List<DimAirport> list = beanSearcher.searchAll(DimAirport.class, params);
@@ -51,10 +48,7 @@ public class AirDataSourceServiceImpl extends ServiceImpl<AirDataSourceMapper, A
     public List<String> getToAirportCode3() {
         //构造查询条件，到达兰州、西安、杭州、武汉
         Map<String, Object> params = MapUtils.builder()
-                .field(DimAirport::getAirportCode3, Constant.XIAN).op(Operator.Equal)
-                .field(DimAirport::getAirportCode3, Constant.HANGZHOU).op(Operator.Equal)
-                .field(DimAirport::getAirportCode3, Constant.LANZHOU).op(Operator.Equal)
-                .field(DimAirport::getAirportCode3, Constant.WUHAN).op(Operator.Equal)
+                .field(DimAirport::getAirportCode3, Constant.XIAN,Constant.HANGZHOU,Constant.LANZHOU,Constant.WUHAN).op(Operator.InList)
                 .build();
         //查询数据库结果
         List<DimAirport> list = beanSearcher.searchAll(DimAirport.class, params);
