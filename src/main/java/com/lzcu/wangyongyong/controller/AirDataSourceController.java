@@ -37,16 +37,13 @@ public class AirDataSourceController{
 
     /**
      * 新增数据
-     * @param params 请求参数，{"dayId":"2023-02-28","fromAirport":"PEK","toAirport":"CAN"}
+     * @param dayId 请求参数，"dayId":"2023-02-28"
      * @return 实例对象
      */
     @ApiOperation("新增数据")
     @RequestMapping(value = "/add",method = RequestMethod.GET)
-    public String add(@RequestBody JSONObject params){
-
-        log.info("接收到的请求参数=【{}】",params);
-        String dayId = params.getString("dayId");
-
+    public String add(@RequestParam("dayId") String  dayId){
+        log.info("接收到的请求参数=【{}】",dayId);
         List<String> fromAirportList = airDataSourceService.getFromAirportCode3();
         List<String> toAirportList = airDataSourceService.getToAirportCode3();
         fromAirportList.forEach(fromAirport -> toAirportList.forEach(toAirport -> {
@@ -60,6 +57,7 @@ public class AirDataSourceController{
             JSONObject airLineDataJson = AirDataCaptureUtil.getAirLineResp(dayId,fromAirport,toAirport);
             String data = airLineDataJson.getString("data");
             JSONArray jsonArray = JSONArray.parseArray(data);
+            //JSONArray jsonArray = JSONArray.parseArray(ExampleData.exampleData); //测试可用此方法
             List<AirDataSource> airDataSourceList = new ArrayList<>();
             jsonArray.forEach(x -> {
                 AirDataSource airDataSource = new AirDataSource();
