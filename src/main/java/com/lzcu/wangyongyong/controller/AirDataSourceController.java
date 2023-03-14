@@ -65,4 +65,13 @@ public class AirDataSourceController{
         }));
         return dayId + "航空数据采集完毕";
     }
+
+    @ApiOperation("新增数据")
+    @RequestMapping(value = "/imgParser",method = RequestMethod.GET)
+    public String imgParser(@RequestParam("dayId") String  dayId){
+        log.info("接收到的请求参数=【{}】",dayId);
+
+
+        return dayId + "航空数据采集完毕";
+    }
 }

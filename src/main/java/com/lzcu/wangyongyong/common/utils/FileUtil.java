@@ -1,14 +1,13 @@
 package com.lzcu.wangyongyong.common.utils;
+import com.lzcu.wangyongyong.common.enums.Constant;
 import lombok.extern.slf4j.Slf4j;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.InputStream;
-import java.io.OutputStream;
+import java.io.*;
 import java.net.URL;
+import java.util.Random;
 
 @Slf4j
-public class FileUtil {
+public class FileUtil implements Serializable {
 
     /**
      * @param fileUrl 资源地址
@@ -115,6 +114,13 @@ public class FileUtil {
     }
 
     public static String getNetUrlHttp(String path){
+        //每次数据抓取前随机等待5秒至20秒
+        try {
+            Thread.sleep((new Random()).nextInt(Constant.MAX)%(Constant.MIN) + Constant.MIN);
+        } catch (InterruptedException e) {
+            log.error("随机睡眠时间出错，请检查！");
+            throw new RuntimeException(e);
+        }
         //对本地文件命名，path是http的完整路径，主要得到资源的名字
         String newUrl = path;
         String fileName = newUrl.split("[?]")[1];

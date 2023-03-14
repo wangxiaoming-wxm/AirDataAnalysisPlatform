@@ -1,8 +1,13 @@
 package com.lzcu.wangyongyong;
 
+import com.github.jaiimageio.impl.plugins.tiff.TIFFImageWriterSpi;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import javax.imageio.ImageIO;
+import javax.imageio.spi.IIORegistry;
+import javax.imageio.spi.ImageWriterSpi;
 
 /**
  * @author 王勇勇
