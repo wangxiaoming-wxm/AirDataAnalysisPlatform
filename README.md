@@ -4,12 +4,13 @@
 AirDataAnalysisPlatform项目是基于SpringBoot+MyBatis Plus构建的航空数据采集平台，主要通过代码控制数据采集周期、数据采集起止点，通过Jsoup框架获取真实数据，之后写入MySQL，即完成数据采集链路。
 
 #### 软件架构
-- springBoot 2.3.9.RELEASE
+- springBoot 2.6.7
 - mybatis plus 3.5.0
 - jsoup 1.14.3
 - mysql 8.0.27
 - fastjson 2.0.7
 - beanSearch 3.8.1
+- tess4j 5.3.0
 
 #### 安装教程
 
