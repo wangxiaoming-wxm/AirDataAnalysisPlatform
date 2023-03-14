@@ -7,8 +7,8 @@ package com.lzcu.wangyongyong.common.enums;
  */
 public class Constant {
 
-    public static int MAX = 20000;
-    public static int MIN = 5000;
+    public static int MAX = 8000;
+    public static int MIN = 2000;
 
     public static String BEIJING = "PEK";
     public static String SHANGHAI = "SHA";

@@ -122,8 +122,7 @@ public class FileUtil implements Serializable {
             throw new RuntimeException(e);
         }
         //对本地文件命名，path是http的完整路径，主要得到资源的名字
-        String newUrl = path;
-        String fileName = newUrl.split("[?]")[1];
+        String fileName = path.split("[?]")[1];
 
         //保存到本地的路径
         String filePath="D:\\code\\java\\ESG信息管理系统\\AirDataAnalysisPlatform\\images\\"+fileName+".png";
@@ -146,7 +145,7 @@ public class FileUtil implements Serializable {
                 e.printStackTrace();
             }
             //下载
-            urlfile = new URL(newUrl);
+            urlfile = new URL(path);
             inputStream = urlfile.openStream();
             outputStream = new FileOutputStream(file);
 

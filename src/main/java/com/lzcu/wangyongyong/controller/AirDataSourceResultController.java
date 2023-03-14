@@ -25,6 +25,7 @@ import javax.imageio.ImageIO;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 
 /**
@@ -52,10 +53,13 @@ public class AirDataSourceResultController {
     @RequestMapping(value = "/parser",method = RequestMethod.GET)
     public String imgParser(@RequestParam("dayId") String  dayId){
         log.info("接收到的请求参数=【{}】",dayId);
-        Map<String, Object> params = MapUtils.builder().field(AirDataSourceResult::getLocaldate).op(Operator.Equal).build();
+        Map<String, Object> params = MapUtils.builder()
+                .field(AirDataSourceResult::getLocaldate).op(Operator.Equal)
+                .build();
         //查询数据库结果
         List<AirDataSourceResult> airDataList = beanSearcher.searchAll(AirDataSourceResult.class, params);
-        airDataList.forEach( x -> {
+        airDataList.stream().filter(x -> x.getArracttime().contains("http") && x.getDepacttime().contains("http")).collect(Collectors.toList())
+                .forEach(x -> {
             String arrActTimeUrl = FileUtil.getNetUrlHttp(x.getArracttime());
             String depActTimeUrl = FileUtil.getNetUrlHttp(x.getDepacttime());
             String arrActTime = ImageDateParser.getImgText(arrActTimeUrl);

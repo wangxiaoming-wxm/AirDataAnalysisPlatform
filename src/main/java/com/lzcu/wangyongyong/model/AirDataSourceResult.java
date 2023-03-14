@@ -16,7 +16,7 @@ import java.io.Serializable;
  * @date : 2023-3-14
  */
 @ApiModel(value = "航空数据原始表",description = "")
-@TableName("air_data_source")
+@TableName("air_data_source_result")
 @Data
 public class AirDataSourceResult extends Model<AirDataSourceResult> implements Serializable {
 
