@@ -1,7 +1,7 @@
-package com.lzcu.wangyongyong.mapper;
+package com.air.data.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.lzcu.wangyongyong.model.AirDataSourceResult;
+import com.air.data.model.AirDataSourceResult;
 import org.apache.ibatis.annotations.Mapper;
 
 /**

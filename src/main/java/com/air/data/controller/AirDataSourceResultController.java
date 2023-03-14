@@ -1,13 +1,13 @@
-package com.lzcu.wangyongyong.controller;
+package com.air.data.controller;
 
+import com.air.data.common.utils.FileUtil;
+import com.air.data.mapper.AirDataSourceResultMapper;
+import com.air.data.model.AirDataSourceResult;
+import com.air.data.service.AirDataSourceResultService;
 import com.ejlchina.searcher.BeanSearcher;
 import com.ejlchina.searcher.param.Operator;
 import com.ejlchina.searcher.util.MapUtils;
-import com.lzcu.wangyongyong.common.utils.FileUtil;
-import com.lzcu.wangyongyong.common.utils.ImageDateParser;
-import com.lzcu.wangyongyong.mapper.AirDataSourceResultMapper;
-import com.lzcu.wangyongyong.model.AirDataSourceResult;
-import com.lzcu.wangyongyong.service.AirDataSourceResultService;
+import com.air.data.common.utils.ImageDateParser;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;

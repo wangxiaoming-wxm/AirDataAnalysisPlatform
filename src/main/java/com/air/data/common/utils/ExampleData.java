@@ -1,4 +1,4 @@
-package com.lzcu.wangyongyong.common.utils;
+package com.air.data.common.utils;
 
 public class ExampleData {
     public static String exampleData = "[\n" +

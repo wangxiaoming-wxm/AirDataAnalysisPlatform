@@ -1,16 +1,15 @@
-package com.lzcu.wangyongyong.controller;
+package com.air.data.controller;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import com.air.data.common.utils.JsonToBeanUtil;
+import com.air.data.model.AirDataSource;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import com.lzcu.wangyongyong.common.utils.AirDataCaptureUtil;
-import com.lzcu.wangyongyong.common.utils.ExampleData;
-import com.lzcu.wangyongyong.common.utils.JsonToBeanUtil;
-import com.lzcu.wangyongyong.mapper.AirDataSourceMapper;
-import com.lzcu.wangyongyong.model.AirDataSource;
-import com.lzcu.wangyongyong.service.AirDataSourceService;
+import com.air.data.common.utils.AirDataCaptureUtil;
+import com.air.data.mapper.AirDataSourceMapper;
+import com.air.data.service.AirDataSourceService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;

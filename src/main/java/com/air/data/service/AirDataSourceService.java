@@ -1,8 +1,8 @@
-package com.lzcu.wangyongyong.service;
+package com.air.data.service;
 
 
+import com.air.data.model.AirDataSource;
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.lzcu.wangyongyong.model.AirDataSource;
 
 import java.util.List;
 

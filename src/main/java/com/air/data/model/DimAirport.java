@@ -1,4 +1,4 @@
-package com.lzcu.wangyongyong.model;
+package com.air.data.model;
 
 import com.ejlchina.searcher.bean.DbField;
 import com.ejlchina.searcher.bean.SearchBean;

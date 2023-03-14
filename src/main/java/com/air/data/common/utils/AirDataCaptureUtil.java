@@ -1,7 +1,7 @@
-package com.lzcu.wangyongyong.common.utils;
+package com.air.data.common.utils;
 
 import com.alibaba.fastjson.JSONObject;
-import com.lzcu.wangyongyong.common.enums.Constant;
+import com.air.data.common.enums.Constant;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.IOException;

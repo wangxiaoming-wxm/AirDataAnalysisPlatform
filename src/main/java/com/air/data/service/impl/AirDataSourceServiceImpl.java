@@ -1,14 +1,14 @@
-package com.lzcu.wangyongyong.service.impl;
+package com.air.data.service.impl;
 
+import com.air.data.mapper.AirDataSourceMapper;
+import com.air.data.model.AirDataSource;
+import com.air.data.model.DimAirport;
+import com.air.data.service.AirDataSourceService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.ejlchina.searcher.BeanSearcher;
 import com.ejlchina.searcher.param.Operator;
 import com.ejlchina.searcher.util.MapUtils;
-import com.lzcu.wangyongyong.common.enums.Constant;
-import com.lzcu.wangyongyong.mapper.AirDataSourceMapper;
-import com.lzcu.wangyongyong.model.AirDataSource;
-import com.lzcu.wangyongyong.model.DimAirport;
-import com.lzcu.wangyongyong.service.AirDataSourceService;
+import com.air.data.common.enums.Constant;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

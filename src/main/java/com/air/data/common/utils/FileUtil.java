@@ -1,5 +1,5 @@
-package com.lzcu.wangyongyong.common.utils;
-import com.lzcu.wangyongyong.common.enums.Constant;
+package com.air.data.common.utils;
+import com.air.data.common.enums.Constant;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.*;

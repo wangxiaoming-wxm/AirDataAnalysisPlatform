@@ -1,4 +1,4 @@
-package com.lzcu.wangyongyong.common.enums;
+package com.air.data.common.enums;
 
 /**
  * 配置表（爬虫每次获取数据后随机睡眠MAX到MIN毫秒

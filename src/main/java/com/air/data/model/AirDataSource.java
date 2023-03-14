@@ -1,4 +1,4 @@
-package com.lzcu.wangyongyong.model;
+package com.air.data.model;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;

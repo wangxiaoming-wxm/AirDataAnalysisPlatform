@@ -1,6 +1,4 @@
-package com.lzcu.wangyongyong.common.utils;
-import java.awt.image.BufferedImage;
-import java.awt.image.RenderedImage;
+package com.air.data.common.utils;
 import java.io.File;
 import java.io.Serializable;
 

@@ -1,7 +1,7 @@
-package com.lzcu.wangyongyong.common.utils;
+package com.air.data.common.utils;
 
 import com.alibaba.fastjson.JSONObject;
-import com.lzcu.wangyongyong.model.AirDataSource;
+import com.air.data.model.AirDataSource;
 
 public class JsonToBeanUtil {
     public static AirDataSource toAirDataSource (JSONObject jsonObject) {

@@ -1,9 +1,9 @@
-package com.lzcu.wangyongyong.service.impl;
+package com.air.data.service.impl;
 
+import com.air.data.mapper.AirDataSourceResultMapper;
+import com.air.data.model.AirDataSourceResult;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.lzcu.wangyongyong.mapper.AirDataSourceResultMapper;
-import com.lzcu.wangyongyong.model.AirDataSourceResult;
-import com.lzcu.wangyongyong.service.AirDataSourceResultService;
+import com.air.data.service.AirDataSourceResultService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 

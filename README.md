@@ -8,7 +8,6 @@ AirDataAnalysisPlatform项目是基于SpringBoot+MyBatis Plus构建的航空数�
 - mybatis plus 3.5.0
 - jsoup 1.14.3
 - mysql 8.0.27
-- fastjson 2.0.7
 - beanSearch 3.8.1
 - tess4j 5.3.0
 
@@ -17,7 +16,7 @@ AirDataAnalysisPlatform项目是基于SpringBoot+MyBatis Plus构建的航空数�
 1.  修改application-dev.yml中mysql数据的连接URL和用户名密码
 2.  mvn clean install编译代码
 3.  进入sql目录，在自己的mysql执行air_data_source.sql语句，创建相关的表
-4.  进入com.lzcu.wangyongyong包，打开Application类，点击运行即可
+4.  进入com.air.data包，打开Application类，点击运行即可
 
 #### 使用说明
 
