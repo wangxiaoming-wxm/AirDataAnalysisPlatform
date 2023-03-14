@@ -59,7 +59,7 @@ public class AirDataSourceController{
                 AirDataSource airDataSource = JsonToBeanUtil.toAirDataSource(jsonObject);
                 airDataSourceList.add(airDataSource);
             });
-            if(null != airDataSourceList && airDataSourceList.size() > 0){
+            if(airDataSourceList.size() > 0){
                 airDataSourceService.saveBatch(airDataSourceList);
             }
         }));

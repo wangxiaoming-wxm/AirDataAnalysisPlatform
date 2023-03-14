@@ -51,7 +51,10 @@ public class AirDataSourceResultController {
                 .build();
         //查询数据库结果
         List<AirDataSourceResult> airDataList = beanSearcher.searchAll(AirDataSourceResult.class, params);
-        airDataList.stream().filter(x -> x.getArracttime().contains("http") && x.getDepacttime().contains("http")).collect(Collectors.toList())
+        airDataList.stream().filter(x ->
+                        null != x
+                        && x.getArracttime().contains("http")
+                        && x.getDepacttime().contains("http")).collect(Collectors.toList())
                 .forEach(x -> {
             String arrActTimeUrl = FileUtil.getNetUrlHttp(x.getArracttime());
             String depActTimeUrl = FileUtil.getNetUrlHttp(x.getDepacttime());
