@@ -72,6 +72,6 @@ public class AirDataSourceController{
         log.info("接收到的请求参数=【{}】",dayId);
 
 
-        return dayId + "航空数据采集完毕";
+        return "【" + dayId + "】" + "航空数据采集完毕";
     }
 }
