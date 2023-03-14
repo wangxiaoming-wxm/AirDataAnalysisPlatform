@@ -30,7 +30,10 @@ http://127.0.0.1:8081/airDataSource/add
 ```shell
 http://127.0.0.1:8081/airDataSource/add?dayId=2023-02-27
 ```
-
+4.  本平台图片OCR识别并入库的接口参数为dayId：
+```shell
+http://localhost:8081/images/parser?dayId=2023-02-27
+```
 
 #### 参与贡献
 
