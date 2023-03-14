@@ -70,6 +70,6 @@ public class AirDataSourceResultController {
             airDataSourceResultMapper.updateById(x);
         });
 
-        return dayId + "OCR识别图片中实际起飞及降落时间，已完成识别并入库";
+        return "【" + dayId +  "】" + "OCR识别图片中实际起飞及降落时间，已完成识别并入库";
     }
 }
