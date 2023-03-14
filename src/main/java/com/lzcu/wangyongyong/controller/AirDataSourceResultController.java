@@ -1,7 +1,5 @@
 package com.lzcu.wangyongyong.controller;
 
-import com.alibaba.fastjson.JSONArray;
-import com.alibaba.fastjson.JSONObject;
 import com.ejlchina.searcher.BeanSearcher;
 import com.ejlchina.searcher.param.Operator;
 import com.ejlchina.searcher.util.MapUtils;
@@ -14,15 +12,10 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
-import javax.annotation.Resource;
-import javax.imageio.ImageIO;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -69,7 +62,6 @@ public class AirDataSourceResultController {
             x.setDepacttime(depActTime);
             airDataSourceResultMapper.updateById(x);
         });
-
         return "【" + dayId +  "】" + "OCR识别图片中实际起飞及降落时间，已完成识别并入库";
     }
 }
