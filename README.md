@@ -16,7 +16,8 @@ AirDataAnalysisPlatform项目是基于SpringBoot+MyBatis Plus构建的航空数�
 1.  修改application-dev.yml中mysql数据的连接URL和用户名密码
 2.  mvn clean install编译代码
 3.  进入sql目录，在自己的mysql执行air_data_source.sql语句，创建相关的表
-4.  进入com.air.data包，打开Application类，点击运行即可
+4.  需要安装tesseract-ocr，下载地址：https://digi.bib.uni-mannheim.de/tesseract/ 安装完成后，设置环境变量：TESSDATA_PREFIX，指向安装目录下的tessdata文件夹。
+5.  进入com.air.data包，打开Application类，点击运行即可
 
 #### 使用说明
 

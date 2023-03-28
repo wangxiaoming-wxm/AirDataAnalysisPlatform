@@ -9,7 +9,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @Date 2023年2月28日16:10:56
  */
 @SpringBootApplication
-@MapperScan("com.lzcu.wangyongyong.mapper")
+@MapperScan("com.air.data.mapper")
 public class Application {
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
