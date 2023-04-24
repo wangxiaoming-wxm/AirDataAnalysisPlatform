@@ -1,4 +1,4 @@
-package com.scala.air.data.utils
+package com.air.data.scalaUtils
 
 import ml.dmlc.xgboost4j.scala.spark.{XGBoostClassificationModel, XGBoostClassifier}
 import org.apache.spark.ml.Pipeline

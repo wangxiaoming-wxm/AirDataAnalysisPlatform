@@ -1,4 +1,4 @@
-package com.scala.air.data.utils
+package com.air.data.scalaUtils
 
 import org.apache.spark.ml.feature.LabeledPoint
 import org.apache.spark.ml.linalg.Vectors

@@ -1,20 +1,9 @@
-package com.scala.air.data.utils
+package com.air.data.scalaUtils
 
 import java.text.SimpleDateFormat
 import java.util.{Calendar, Date}
 
 object DUtils {
-
-  def main(args: Array[String]) {
-    println(DUtils.getDateChange("2016-04-18", -1))
-    println(DUtils.getDateChange("2018-02-28", -180))
-
-    println(DUtils.getDateChange(DUtils.getCurrentDate(), -30))
-    println(DUtils.getDayForWeek("2019-10-10"))
-
-
-  }
-
   def getDayForWeek(date: String): Int = {
     val dateFormat: SimpleDateFormat = new SimpleDateFormat("yyyy-MM-dd")
     var cal = Calendar.getInstance()

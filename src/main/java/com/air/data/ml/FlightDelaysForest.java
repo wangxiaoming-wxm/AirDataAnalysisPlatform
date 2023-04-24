@@ -1,7 +1,7 @@
 package com.air.data.ml;
 import com.air.data.common.utils.SparkSessionUtil;
-import com.scala.air.data.utils.DUtils;
-import com.scala.air.data.utils.SparkMLlibUtils;
+import com.air.data.scalaUtils.DUtils;
+import com.air.data.scalaUtils.SparkMLlibUtils;
 import org.apache.spark.sql.Dataset;
 import org.apache.spark.sql.Row;
 import org.apache.spark.sql.SparkSession;
